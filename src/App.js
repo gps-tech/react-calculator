@@ -60,14 +60,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 // }
 
 function App() {
-  // const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
-  //   reducer,
-  //   {}
-  // );
-
   const [state, setState] = useState(initialState);
-  // const [previousOperand, setPreviousOperand] = useState();
-  // const [operation, setOperation] = useState();
 
   return (
     <div className="calculator-grid">
@@ -81,101 +74,23 @@ function App() {
         </div>
       </div>
       <AllClearButton clearState={() => setState(initialState)} />
-      <DeleteButton
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <OperationButton
-        operation="÷"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton digit="1" setState={setSa} />
-      <DigitButton
-        digit="2"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="3"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <OperationButton
-        operation="*"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="4"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="5"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="6"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <OperationButton
-        operation="+"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="7"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="8"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="9"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <OperationButton
-        operation="-"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DecimalButton
-        decimal="."
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <DigitButton
-        digit="0"
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
-      <EvaluateButton
-        setCurrentOperand={setCurrentOperand}
-        setPreviousOperand={setPreviousOperand}
-        setOperation={setOperation}
-      />
+      <DeleteButton />
+      <OperationButton operation="÷" />
+      <DigitButton digit="1" setState={setState} state={state} />
+      <DigitButton digit="2" setState={setState} state={state} />
+      <DigitButton digit="3" setState={setState} state={state} />
+      <OperationButton operation="*" />
+      <DigitButton digit="4" setState={setState} state={state} />
+      <DigitButton digit="5" setState={setState} state={state} />
+      <DigitButton digit="6" setState={setState} state={state} />
+      <OperationButton operation="+" />
+      <DigitButton digit="7" setState={setState} state={state} />
+      <DigitButton digit="8" setState={setState} state={state} />
+      <DigitButton digit="9" setState={setState} state={state} />
+      <OperationButton operation="-" />
+      <DecimalButton decimal="." />
+      <DigitButton digit="0" setState={setState} state={state} />
+      <EvaluateButton digit="=" />
     </div>
   );
 }
