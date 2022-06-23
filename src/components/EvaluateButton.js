@@ -1,10 +1,8 @@
-import { ACTIONS } from "../App";
-
 export default function AllClearButton({ dispatch }) {
   return (
     <button
       className="span-two"
-      onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
+      // onClick={() => }
     >
       =
     </button>

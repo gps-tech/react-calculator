@@ -1,10 +1,6 @@
-import { ACTIONS } from "../App";
-
 export default function DeleteButton({ dispatch }) {
   return (
-    <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
-      DEL
-    </button>
+    <button>DEL</button>
     // if (state.overwrite) {
     //   return {
     //     ...state,

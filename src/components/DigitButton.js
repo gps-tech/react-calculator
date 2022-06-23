@@ -1,13 +1,8 @@
-export default function DigitButton({ digit, state }) {
+export default function DigitButton({ digit }) {
   return (
     //the button calls the ADD_DIGIT function and it's passing along the digit
     <button
-      onClick={() => {
-        return {
-          ...state,
-          currentOperand: { digit },
-        };
-      }}
+      onClick={console.log("digit:", digit)}
       // onClick={() => {
       //   if (state.overwrite) {
       //     return {

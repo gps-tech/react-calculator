@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
 import { useState } from "react";
 import DecimalButton from "./components/DecimalButton";
 import DigitButton from "./components/DigitButton";
@@ -7,16 +5,7 @@ import OperationButton from "./components/OperationButton";
 import AllClearButton from "./components/AllClearButton";
 import DeleteButton from "./components/DeleteButton";
 import EvaluateButton from "./components/EvaluateButton";
-
-//placing the actions in a global object
-export const ACTIONS = {
-  ADD_DIGIT: "add-digit",
-  CHOOSE_OPERATION: "choose-operation",
-  CLEAR: "clear",
-  DELETE_DIGIT: "delete-digit",
-  EVALUATE: "evaluate",
-  DECIMAL: "decimal",
-};
+import "./App.css";
 
 export const initialState = {
   currentOperand: "",
@@ -25,39 +14,39 @@ export const initialState = {
 };
 
 // <-------------------------------------MATH LOGIC------------------------------------------------->
-function evaluate({ currentOperand, previousOperand, operation }) {
-  const prev = parseFloat(previousOperand);
-  const current = parseFloat(currentOperand);
-  if (isNaN(prev) || isNaN(current)) return "";
-  let computation = "";
-  switch (operation) {
-    case "+":
-      computation = prev + current;
-      break;
-    case "-":
-      computation = prev - current;
-      break;
-    case "*":
-      computation = prev * current;
-      break;
-    case "÷":
-      computation = prev / current;
-      break;
-  }
+// function evaluate({ currentOperand, previousOperand, operation }) {
+//   const prev = parseFloat(previousOperand);
+//   const current = parseFloat(currentOperand);
+//   if (isNaN(prev) || isNaN(current)) return "";
+//   let computation = "";
+//   switch (operation) {
+//     case "+":
+//       computation = prev + current;
+//       break;
+//     case "-":
+//       computation = prev - current;
+//       break;
+//     case "*":
+//       computation = prev * current;
+//       break;
+//     case "÷":
+//       computation = prev / current;
+//       break;
+//   }
 
-  return computation.toString();
-}
+//   return computation.toString();
+// }
 // <-------------------------------------END MATH LOGIC--------------------------------------------->
 
-// const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
-//   maximumFractionDigits: 0
-// });
-// function formatOperand(operation) {
-//   if (operation == null) return;
-//   const [integer, decimal] = operation.split(".");
-//   if (decimal == null) return INTEGER_FORMATTER.format(integer);
-//   return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
-// }
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+  maximumFractionDigits: 0,
+});
+function formatOperand(operation) {
+  if (operation == null) return;
+  const [integer, decimal] = operation.split(".");
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
+}
 
 function App() {
   const [state, setState] = useState(initialState);
@@ -67,7 +56,7 @@ function App() {
       <div className="output">
         <div className="previous-operand">
           {/* inserting the state variables destructured from useReducer in the const above */}
-          {formatOperand(state.previousOperand)} {operation}
+          {/* {formatOperand(state.previousOperand)} {operation} */}
         </div>
         <div className="current-operand">
           {formatOperand(state.currentOperand)}
@@ -76,7 +65,7 @@ function App() {
       <AllClearButton clearState={() => setState(initialState)} />
       <DeleteButton />
       <OperationButton operation="÷" />
-      <DigitButton digit="1" setState={setState} state={state} />
+      <DigitButton digit="1" />
       <DigitButton digit="2" setState={setState} state={state} />
       <DigitButton digit="3" setState={setState} state={state} />
       <OperationButton operation="*" />
