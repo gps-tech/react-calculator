@@ -13,7 +13,7 @@ export const initialState = {
   operation: "",
 };
 
-// <-------------------------------------MATH LOGIC------------------------------------------------->
+// <------------------------------------- MATH LOGIC ------------------------------------------------->
 // function evaluate({ currentOperand, previousOperand, operation }) {
 //   const prev = parseFloat(previousOperand);
 //   const current = parseFloat(currentOperand);
@@ -55,8 +55,7 @@ function App() {
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">
-          {/* inserting the state variables destructured from useReducer in the const above */}
-          {/* {formatOperand(state.previousOperand)} {operation} */}
+          {formatOperand(state.previousOperand)} {state.operation}
         </div>
         <div className="current-operand">
           {formatOperand(state.currentOperand)}
@@ -65,7 +64,7 @@ function App() {
       <AllClearButton clearState={() => setState(initialState)} />
       <DeleteButton />
       <OperationButton operation="÷" />
-      <DigitButton digit="1" />
+      <DigitButton digit="1" setState={setState} state={state} />
       <DigitButton digit="2" setState={setState} state={state} />
       <DigitButton digit="3" setState={setState} state={state} />
       <OperationButton operation="*" />
